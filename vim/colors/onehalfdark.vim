@@ -84,7 +84,7 @@ call s:h("MoreMsg", s:fg, "", "")
 call s:h("WarningMsg", s:red, "", "")
 call s:h("Question", s:purple, "", "")
 
-call s:h("Pmenu", s:bg, s:fg, "")
+call s:h("Pmenu", s:bg, s:cursor_line, "")
 call s:h("PmenuSel", s:fg, s:blue, "")
 call s:h("PmenuSbar", "", s:selection, "")
 call s:h("PmenuThumb", "", s:fg, "")
@@ -107,7 +107,7 @@ call s:h("ColorColumn", "", s:color_col, "")
 call s:h("Conceal", s:fg, "", "")
 call s:h("Directory", s:blue, "", "")
 call s:h("VertSplit", s:vertsplit, s:vertsplit, "")
-call s:h("Folded", s:fg, "", "")
+call s:h("Folded", s:comment_fg, "", "")
 call s:h("FoldColumn", s:fg, "", "")
 call s:h("SignColumn", s:fg, "", "")
 
@@ -180,6 +180,7 @@ call s:h("diffRemoved", s:red, "", "")
 
 " Git {
 call s:h("gitcommitComment", s:comment_fg, "", "")
+call s:h("gitcommitSummary", s:blue, "", "")
 call s:h("gitcommitUnmerged", s:red, "", "")
 call s:h("gitcommitOnBranch", s:fg, "", "")
 call s:h("gitcommitBranch", s:purple, "", "")
@@ -199,7 +200,17 @@ hi link gitcommitDiscardedArrow gitcommitDiscardedFile
 hi link gitcommitSelectedArrow gitcommitSelectedFile
 hi link gitcommitUnmergedArrow gitcommitUnmergedFile
 " }
-
+" Fix colors in terminal buffers {
+  if has('terminal')
+    let g:terminal_ansi_colors = [
+          \ s:black.gui, s:red.gui, s:green.gui, s:yellow.gui,
+          \ s:blue.gui, s:purple.gui, s:cyan.gui, s:white.gui,
+          \ s:black.gui, s:red.gui, s:green.gui, s:yellow.gui,
+          \ s:blue.gui, s:purple.gui, s:cyan.gui, s:white.gui
+          \]
+    let g:terminal_color_background = s:bg.gui
+    let g:terminal_color_foreground = s:fg.gui
+  endif
 " Fix colors in neovim terminal buffers {
   if has('nvim')
     let g:terminal_color_0 = s:black.gui
