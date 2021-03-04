@@ -1,6 +1,6 @@
 # Vim Installation & Usage
 
-![screenshot: vim](../screenshots/vim.png)
+![screenshot: vim](./screenshots/vim.png)
 NeoVim + Tmux with true colors on iTerm2.
 
 ## Installation
@@ -36,7 +36,7 @@ let g:airline_theme='onehalfdark'
 " let g:lightline = { 'colorscheme': 'onehalfdark' }
 ```
 
-### True Colors
+### Tru-e Colors
 By default vim only allows specifying one of the 256 (8 bit) predefined colors
 ([wikipedia](https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit)).
 
@@ -65,4 +65,4 @@ set -ga terminal-overrides ",*256col*:Tc"
 To test if your neovim/tmux/terminal combination supports true colors or not, use this
 [test script](https://github.com/sonph/dotfiles/blob/master/bin/truecolor.sh):
 
-![truecolors](../screenshots/truecolors.png)
+![truecolors](./screenshots/truecolors.png)
